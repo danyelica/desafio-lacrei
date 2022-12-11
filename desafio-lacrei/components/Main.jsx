@@ -6,6 +6,13 @@ const Main = styled.main`
 
   margin-left: 6.4rem;
   margin-top: 6rem;
+
+  @media (max-width: 768px) {
+    align-items: center;
+    flex-direction: column;
+
+    gap: 0.5vw;
+  }
 `;
 
 const Title = styled.h1`
@@ -29,11 +36,22 @@ const Subtitle = styled.h3`
     props.page === "home" ? "none" : "5px solid var(--color-primary)"};
 
   color: var(--gray);
+
+  @media (max-width: 768px) {
+    font-size: 3.5rem;
+    line-height: 40px;
+  }
 `;
 
 const Buttons = styled.div`
   display: flex;
   gap: 6.9rem;
+
+  @media (max-width: 540px) {
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 const Button = styled.button`
@@ -54,10 +72,19 @@ const Button = styled.button`
     props.name === "profissional" ? "2px solid var(--color-primary)" : "none"};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    width: 25rem;
+  }
 `;
 
 const Image = styled.img`
   width: 45%;
+
+  @media (max-width: 768px) {
+    width: 80%;
+  }
 `;
 
 export default function MainComponent({
