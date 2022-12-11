@@ -1,29 +1,31 @@
 import styled from "styled-components";
+import Link from "next/link";
 
 const Main = styled.main`
   display: flex;
   gap: 16vw;
 
-  margin-left: 6.4rem;
-  margin-top: 6rem;
+  margin: 6rem 6.4rem 0;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1040px) {
     align-items: center;
     justify-content: center;
     flex-direction: column;
 
-    margin-left: 0rem;
+    margin: 0rem;
+    margin-top: 3.2rem;
 
     gap: 0.5vw;
   }
+
+  @media (max-width: 540px) {
+    margin-top: 0;
+  }
 `;
 
-const Left = styled.div`
+const Text = styled.div`
   @media (max-width: 540px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    margin-left: 1.6rem;
   }
 `;
 
@@ -31,11 +33,20 @@ const Title = styled.h1`
   font-weight: 700;
   font-size: 4.8rem;
   line-height: 65px;
+  letter-spacing: -1px;
 
   margin-bottom: 3.2rem;
 
+  color: #1f1f1f;
+
+  @media (max-width: 1040px) {
+    font-size: 3.2rem;
+    margin-bottom: 0;
+  }
+
   @media (max-width: 540px) {
-    text-align: center;
+    font-size: 2.4rem;
+    text-align: left;
   }
 `;
 
@@ -46,17 +57,20 @@ const Subtitle = styled.h3`
 
   padding-left: ${(props) => (props.page === "home" ? "0" : "2.4rem")};
   margin-bottom: 4.8rem;
-  width: 90%;
 
   border-left: ${(props) =>
     props.page === "home" ? "none" : "5px solid var(--color-primary)"};
 
   color: var(--gray);
 
-  @media (max-width: 768px) {
-    font-size: 3.5rem;
+  @media (max-width: 1040px) {
+    font-size: 1.6rem;
     line-height: 40px;
-    text-align: center;
+  }
+
+  @media (max-width: 540px) {
+    font-size: 1.4rem;
+    line-height: 20px;
   }
 `;
 
@@ -66,6 +80,8 @@ const Buttons = styled.div`
 
   @media (max-width: 540px) {
     flex-direction: column;
+    align-items: center;
+
     gap: 2rem;
     margin-bottom: 2rem;
   }
@@ -90,18 +106,27 @@ const Button = styled.button`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
 
-  @media (max-width: 768px) {
+  &:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 540px) {
     font-size: 2rem;
-    width: 25rem;
+    width: 19rem;
+    justify-self: center;
   }
 `;
 
 const Image = styled.img`
   width: 45%;
 
-  @media (max-width: 768px) {
-    width: 80%;
+  @media (max-width: 1040px) {
+    width: 50%;
     text-align: left;
+  }
+
+  @media (max-width: 540px) {
+    width: 90%;
   }
 `;
 
@@ -114,16 +139,22 @@ export default function MainComponent({
 }) {
   return (
     <Main>
-      <Left>
-        <Title>{title}</Title>
-        <Subtitle page={page}>{subtitle}</Subtitle>
+      <div>
+        <Text>
+          <Title>{title}</Title>
+          <Subtitle page={page}>{subtitle}</Subtitle>
+        </Text>
         {buttons && (
           <Buttons>
-            <Button>Pessoa Usuária</Button>
-            <Button name='profissional'>Profissional</Button>
+            <Link href='/pessoa-usuaria'>
+              <Button>Pessoa Usuária</Button>
+            </Link>
+            <Link href='/profissional'>
+              <Button name='profissional'>Profissional</Button>
+            </Link>
           </Buttons>
         )}
-      </Left>
+      </div>
       <Image src={image.src} />
     </Main>
   );

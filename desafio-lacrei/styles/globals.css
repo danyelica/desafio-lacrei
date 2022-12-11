@@ -3,8 +3,7 @@
 html,
 body {
   font-size: 62.5%;
-  font-family: -apple-system, "Nunito", BlinkMacSystemFont, Segoe UI, Roboto,
-    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Nunito", sans-serif;
 
   --color-primary: #018762;
   --black: #000000;

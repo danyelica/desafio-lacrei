@@ -10,7 +10,7 @@ const Header = styled.header`
   align-items: center;
   justify-content: space-between;
 
-  padding: ${(props) => (props.menu ? "6.4rem 0" : "0 6.4rem")};
+  padding: 0 6.4rem;
   height: 60px;
   width: 100%;
 
@@ -18,9 +18,15 @@ const Header = styled.header`
 
   position: ${(props) => props.menu && "fixed"};
 
+  @media (max-width: 1040px) {
+    padding: 0 3.2rem;
+  }
+
   @media (max-width: 540px) {
-    flex-direction: ${(props) => (props.menu ? "column" : "row")};
-    height: ${(props) => (props.menu ? "100vh" : "60px")};
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0.8rem 1.6rem;
+    height: auto;
   }
 `;
 
@@ -28,15 +34,24 @@ const Title = styled.h1`
   font-weight: 700;
   font-size: 3.2rem;
   line-height: 44px;
+  letter-spacing: -1px;
+
+  cursor: pointer;
 
   color: var(--color-primary);
+
+  &:hover {
+    opacity: 0.7;
+  }
 `;
 
 const Nav = styled.nav`
   display: flex;
-  flex-direction: ${(props) => (props.menu ? "column" : "row")};
-  align-items: ${(props) => (props.menu ? "center" : "flex-start")};
   gap: 4rem;
+
+  @media (max-width: 540px) {
+    gap: 2rem;
+  }
 `;
 
 const NavLink = styled.h3`
@@ -48,50 +63,33 @@ const NavLink = styled.h3`
   color: ${(props) => (props.page ? "var(--color-primary)" : "var(--black)")};
 
   @media (max-width: 540px) {
-    display: ${(props) => (props.menu ? "block" : "none")};
-    font-size: 2.3rem;
-  }
-`;
-
-const Menu = styled.img`
-  display: none;
-  width: 45px;
-
-  @media (max-width: 540px) {
-    display: block;
+    font-size: 1.4rem;
   }
 `;
 
 export default function HeaderComponent() {
-  const [openMenu, setOpenMenu] = useState(false);
   const router = useRouter();
 
   return (
-    <Header menu={openMenu}>
-      <Title>Lacrei</Title>
-      <Nav menu={openMenu}>
+    <Header>
+      <Link href='/'>
+        <Title>Lacrei</Title>
+      </Link>
+      <Nav>
         <Link href='/'>
-          <NavLink menu={openMenu} page={router.pathname === "/"}>
-            Home
-          </NavLink>
+          <NavLink page={router.pathname === "/"}>Home</NavLink>
         </Link>
         <Link href='/pessoa-usuaria'>
-          <NavLink menu={openMenu} page={router.pathname === "/pessoa-usuaria"}>
+          <NavLink page={router.pathname === "/pessoa-usuaria"}>
             Pessoa Usuária
           </NavLink>
         </Link>
         <Link href='/profissional'>
-          <NavLink menu={openMenu} page={router.pathname === "/profissional"}>
+          <NavLink page={router.pathname === "/profissional"}>
             Profissional
           </NavLink>
         </Link>
       </Nav>
-
-      <Menu
-        src={openMenu ? CloseIcon.src : MenuIcon.src}
-        menu={openMenu}
-        onClick={() => setOpenMenu(!openMenu)}
-      />
     </Header>
   );
 }

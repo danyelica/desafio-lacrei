@@ -10,6 +10,10 @@ const Container = styled.div`
   justify-content: space-between;
 
   height: 100vh;
+
+  @media (max-width: 540px) {
+    justify-content: flex-start;
+  }
 `;
 
 export default function Layout({ title, subtitle, image, buttons, page }) {

@@ -5,7 +5,7 @@ export default function Profissional() {
   return (
     <Layout
       title='Profissional'
-      subtitle='A Lacrei garante que pessoas LGBTQIAPN + recebam atendimento realizado por profissionais de qualidade e que atendam às suas necessidades de forma segura e acolhedora.'
+      subtitle='Buscamos recrutar pessoas profissionais da saúde que entendam as necessidades e se comprometam com o bem-estar da comunidade LGBTQIAPN+'
       image={ProfissionalImage}
       page='profissional'
     />

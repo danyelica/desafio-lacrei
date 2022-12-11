@@ -18,7 +18,8 @@ const Footer = styled.header`
 
   @media (max-width: 540px) {
     margin: 0;
-    padding-left: 3rem;
+    padding-top: 1.6rem;
+    padding-left: 1.6rem;
     margin-bottom: 0.8rem;
     width: 100%;
   }
@@ -30,7 +31,7 @@ const Nav = styled.nav`
 
   @media (max-width: 540px) {
     flex-direction: column;
-    gap: 2rem;
+    gap: 0.5rem;
   }
 `;
 
@@ -40,8 +41,12 @@ const NavLink = styled.h3`
   line-height: 22px;
   cursor: pointer;
 
+  &:hover {
+    opacity: 0.7;
+  }
+
   @media (max-width: 540px) {
-    font-size: 2.5rem;
+    font-size: 1.4rem;
   }
 `;
 
@@ -50,17 +55,25 @@ const Icons = styled.div`
   gap: 4rem;
 
   margin: 2.4rem 0;
+
+  @media (max-width: 540px) {
+    gap: 3rem;
+    margin: 1rem 0;
+  }
 `;
 
 const Icon = styled.img`
   cursor: pointer;
+  &:hover {
+    opacity: 0.7;
+  }
 
   @media (max-width: 540px) {
-    width: 5rem;
+    width: 3.2rem;
   }
 `;
 
-const Text = styled.h3`
+const Text = styled.p`
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;
@@ -68,7 +81,7 @@ const Text = styled.h3`
   color: var(--gray);
 
   @media (max-width: 540px) {
-    font-size: 2rem;
+    font-size: 1.2rem;
   }
 `;
 
