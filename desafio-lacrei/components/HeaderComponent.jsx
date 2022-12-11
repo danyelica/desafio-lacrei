@@ -1,9 +1,6 @@
-import styled from "styled-components";
-import MenuIcon from "../public/assets/icons/menu-icon.svg";
-import CloseIcon from "../public/assets/icons/close-icon.svg";
-import { useRouter } from "next/router";
 import Link from "next/link";
-import { useState } from "react";
+import { useRouter } from "next/router";
+import styled from "styled-components";
 
 const Header = styled.header`
   display: flex;
