@@ -2,7 +2,7 @@ import Head from "next/head";
 import styled from "styled-components";
 import FooterComponent from "./FooterComponent";
 import HeaderComponent from "./HeaderComponent";
-import MainComponent from "./main";
+import MainComponent from "./MainComponent";
 
 const Container = styled.div`
   display: flex;
