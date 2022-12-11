@@ -27,6 +27,11 @@ const Footer = styled.header`
 const Nav = styled.nav`
   display: flex;
   gap: 4rem;
+
+  @media (max-width: 540px) {
+    flex-direction: column;
+    gap: 2rem;
+  }
 `;
 
 const NavLink = styled.h3`

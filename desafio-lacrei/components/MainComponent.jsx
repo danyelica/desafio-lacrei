@@ -9,9 +9,21 @@ const Main = styled.main`
 
   @media (max-width: 768px) {
     align-items: center;
+    justify-content: center;
     flex-direction: column;
 
+    margin-left: 0rem;
+
     gap: 0.5vw;
+  }
+`;
+
+const Left = styled.div`
+  @media (max-width: 540px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 `;
 
@@ -21,6 +33,10 @@ const Title = styled.h1`
   line-height: 65px;
 
   margin-bottom: 3.2rem;
+
+  @media (max-width: 540px) {
+    text-align: center;
+  }
 `;
 
 const Subtitle = styled.h3`
@@ -40,6 +56,7 @@ const Subtitle = styled.h3`
   @media (max-width: 768px) {
     font-size: 3.5rem;
     line-height: 40px;
+    text-align: center;
   }
 `;
 
@@ -84,6 +101,7 @@ const Image = styled.img`
 
   @media (max-width: 768px) {
     width: 80%;
+    text-align: left;
   }
 `;
 
@@ -96,7 +114,7 @@ export default function MainComponent({
 }) {
   return (
     <Main>
-      <div>
+      <Left>
         <Title>{title}</Title>
         <Subtitle page={page}>{subtitle}</Subtitle>
         {buttons && (
@@ -105,7 +123,7 @@ export default function MainComponent({
             <Button name='profissional'>Profissional</Button>
           </Buttons>
         )}
-      </div>
+      </Left>
       <Image src={image.src} />
     </Main>
   );
