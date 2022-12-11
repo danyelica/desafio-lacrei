@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 const Header = styled.header`
   display: flex;
@@ -17,7 +18,7 @@ const Title = styled.h1`
   font-size: 3.2rem;
   line-height: 44px;
 
-  color: #018762;
+  color: var(--color-primary);
 `;
 
 const Nav = styled.nav`
@@ -25,24 +26,34 @@ const Nav = styled.nav`
   gap: 4rem;
 `;
 
-const Link = styled.h3`
+const Link = styled.a`
   font-weight: 700;
   font-size: 1.6rem;
   line-height: 22px;
   cursor: pointer;
 
-  color: ${(props) =>
-    window.location.pathname === props.page ? "#018762" : "#000000"};
+  color: ${(props) => (props.page ? "var(--color-primary)" : "var(--black)")};
 `;
 
 export default function HeaderComponent() {
+  const router = useRouter();
+
   return (
     <Header>
       <Title>Lacrei</Title>,
       <Nav>
-        <Link page='/'>Home</Link>
-        <Link page='/pessoa-usuaria'>Pessoa Usuária</Link>
-        <Link page='profissional'>Profissional</Link>{" "}
+        <Link page={router.pathname === "/"} href='/'>
+          Home
+        </Link>
+        <Link
+          page={router.pathname === "/pessoa-usuaria"}
+          href='/pessoa-usuaria'
+        >
+          Pessoa Usuária
+        </Link>
+        <Link page={router.pathname === "/profissional"} href='/profissional'>
+          Profissional
+        </Link>
       </Nav>
     </Header>
   );
