@@ -1,6 +1,6 @@
 # Desafio de Front End da Lacrei
 
-Esse desafio para o voluntariado de Front End da Lacrei foi feito usando o [Next.js](https://nextjs.org/docs/getting-started) e consistia em reproduzir um figma com 3 páginas.
+Esse desafio para o voluntariado de Front End da Lacrei foi feito usando o [Next.js](https://nextjs.org/docs/getting-started) e consistia em reproduzir um figma com 3 páginas. Esse projeto está deploiado nesse link [aqui](https://desafio-lacrei-psi.vercel.app/).
 
 ## Instalação
 Siga esses passos no terminal para rodar o aplicativo:<br>
